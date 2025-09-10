@@ -6,8 +6,6 @@ const app = express();
 app.use(express.json());
 // @ts-ignore
 
-
-
 const otpLimiter = rateLimit({
     windowMs: 5 * 60 * 1000, // 5 minutes
     max: 3, // Limit each IP to 3 OTP requests per windowMs
@@ -26,7 +24,7 @@ const passwordResetLimiter = rateLimit({
 
 // Store OTPs in a simple in-memory object
 const validOtp: Record<string, string> = {};
-
+let requests = {}
 
 app.post("/generate-otp",otpLimiter, async(req, res) => {
     const email = req.body.email;
@@ -42,6 +40,7 @@ app.post("/generate-otp",otpLimiter, async(req, res) => {
 
 app.post("/verify-otp", passwordResetLimiter, async(req, res) => {
     const {email, otp, newPassword} = req.body;
+    if(!requests[ems])
     // @ts-ignore
     if(validOtp[email] == otp) {
         console.log(`Password reset for user ${email} with ${newPassword}`);
