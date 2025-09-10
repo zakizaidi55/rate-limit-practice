@@ -2,7 +2,7 @@ const axios = require('axios');
 
 async function sendRequest (otp:string) {
   let data = JSON.stringify({
-    "email": "zakizaidi0709@gmail.com",
+    "email": "email", // put email here
     "otp": otp,
     "newPassword": "Ihackyouraccont"
   });
@@ -12,7 +12,7 @@ async function sendRequest (otp:string) {
     maxBodyLength: Infinity,
     url: 'http://localhost:3000/verify-otp',
     headers: { 
-      'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjI5NWY3OC0zN2I4LTRjMWItOWZiMC0yYTFiM2E3MDMyZjIiLCJpYXQiOjE3Mzc3MzI5NzV9.uE6OIiNs8gG7qIT9csadYq61xuTZ1ePseam_CiZDIQo', 
+      'authorization': '', 
       'Content-Type': 'application/json'
     },
     data : data

